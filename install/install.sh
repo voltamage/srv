@@ -1,0 +1,8 @@
+#!/bin/sh
+systemctl stop reflector.service
+pacman-key --init
+pacman -Sy --needed --noconfirm reflector
+reflector --sort rate -c US -p https --delay 1 --save /etc/pacman.d/mirrorlist -x berkeley
+#curl https://raw.githubusercontent.com/voltamage/srv/main/files/user_configuration.json -O
+#curl https://raw.githubusercontent.com/voltamage/srv/main/files/user_credentials.json -O
+#archinstall --config user_configuration.json --creds user_credentials.json
