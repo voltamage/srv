@@ -1,0 +1,39 @@
+{
+  "additional-repositories": [],
+  "archinstall-language": "English",
+  "bootloader": "Grub",
+  "config_version": "2.7.1",
+  "debug": false,
+  "hostname": "base",
+  "kernels": ["linux-hardened"],
+  "locale_config": {
+    "kb_layout": "us",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "network_config": {
+    "type": "nm"
+  },
+  "no_pkg_lookups": false,
+  "ntp": true,
+  "offline": false,
+  "packages": [
+    "ansible",
+    "docker",
+    "docker-compose",
+    "neovim",
+    "npm",
+    "openssh",
+    "ranger",
+    "tmux"
+  ],
+  "parallel downloads": 0,
+  "script": "guided",
+  "silent": false,
+  "skip_ntp": false,
+  "skip_version_check": false,
+  "swap": true,
+  "timezone": "America/Los_Angeles",
+  "uki": false,
+  "version": "2.7.1"
+}
