@@ -1,10 +1,10 @@
 {
     "additional-repositories": [],
     "archinstall-language": "English",
-    "bootloader": "Systemd-boot",
+    "bootloader": "Grub",
     "config_version": "2.7.1",
     "debug": false,
-    "hostname": "archlinux",
+    "hostname": "base",
     "kernels": [
         "linux"
     ],
@@ -13,18 +13,25 @@
         "sys_enc": "UTF-8",
         "sys_lang": "en_US"
     },
-    "network_config": {},
+    "network_config": {
+        "type": "nm"
+    },
     "no_pkg_lookups": false,
     "ntp": true,
     "offline": false,
-    "packages": [],
+    "packages": [
+        "ansible",
+        "neovim",
+        "tmux",
+        "ranger"
+    ],
     "parallel downloads": 0,
     "script": "guided",
     "silent": false,
     "skip_ntp": false,
     "skip_version_check": false,
     "swap": true,
-    "timezone": "UTC",
+    "timezone": "America/Los_Angeles",
     "uki": false,
     "version": "2.7.1"
 }
