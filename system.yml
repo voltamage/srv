@@ -9,6 +9,7 @@
         name:
           - atuin
           - chezmoi
+          - eza
           - fd
           - fish
           - fzf
