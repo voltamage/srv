@@ -7,6 +7,7 @@
     - name: Ensure packages required for playbook exist
       package:
         name:
+          - atuin
           - chezmoi
           - fish
           - git
@@ -14,6 +15,7 @@
           - neovim
           - ranger
           - tmux
+          - zoxide
 
     - name: Ensure the main user exists # how to set accompanying gid
       user:
@@ -62,3 +64,13 @@
         mode: 0644
         block: |
           sourceDir: ~/srv/chezmoi
+    
+    - name: Allow the main user to run interactive fish
+      become: true
+      become_user: main
+      blockinfile:
+        path: ~/.bashrc
+        create: true
+        mode: 0644
+        block: |
+          exec fish
