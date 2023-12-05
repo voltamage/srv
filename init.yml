@@ -39,23 +39,6 @@
       shell:
         chdir: ~/srv
         cmd: git remote remove origin && git remote add origin git@github.com:voltamage/srv.git
-    
-    - name: Ensure git directory exists
-      become: true
-      become_user: main
-      file:
-        path: ~/.config/git
-        state: directory
-        mode: 0755
-    
-    - name: Copy git config
-      copy:
-        owner: main
-        group: main
-        force: false
-        mode: 0644
-        src: /home/main/srv/install/config
-        dest: /home/main/.config/git/config
 
     - name: Ensure .ssh directory exists
       become: true
@@ -84,3 +67,21 @@
         mode: 0600
         src: /home/main/srv/install/id_ed25519
         dest: /home/main/.ssh/id_ed25519
+
+    - name: Ensure chezmoi directory exists
+      become: true
+      become_user: main
+      file:
+        path: ~/.config/chezmoi
+        state: directory
+        mode: 0755
+
+    - name: Configure chezmoi
+      become: true
+      become_user: main
+      blockinfile:
+        path: ~/.config/chezmoi/chezmoi.yaml
+        create: true
+        mode: 0644
+        block: |
+          sourceDir: ~/srv/chezmoi

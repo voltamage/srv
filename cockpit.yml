@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure packages required for playbook exist
+      package:
+        name:
+          - cockpit
+          - cockpit-machines
+          - cockpit-packagekit
+          - cockpit-pcp
+          - cockpit-storaged
+          - virt-install
+
+    - name: Enable and start cockpit.socket
+      systemd:
+        enabled: true
+        state: started
+        name: cockpit.socket
+
+    - name: Enable and start pmlogger.service (for metrics)
+      systemd:
+        enabled: true
+        state: started
+        name: pmlogger.service
+
+    - name: Enable and start libvirtd.service (for virtual machines)
+      systemd:
+        enabled: true
+        state: started
+        name: libvirtd.service
