@@ -31,3 +31,17 @@
         mode: 0600
         src: /home/main/srv/install/id_ed25519
         dest: /home/main/.ssh/id_ed25519
+    
+    - name: Ensure /etc/sudoers.d/00_main is deleted
+      file:
+        path: /etc/sudoers.d/00_main
+        state: absent
+
+    - name: Allow the main user to run passworded sudo
+      blockinfile:
+        path: /etc/sudoers.d/00_main
+        create: true
+        mode: 0644
+        validate: "visudo -cf %s"
+        block: |
+          main ALL=(ALL) ALL
