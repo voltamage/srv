@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure packages required for playbook exist
+      package:
+        name:
+          - docker
+          - docker-compose
+
+    - name: Enable and start docker.service
+      systemd:
+        enabled: true
+        state: started
+        name: docker.service

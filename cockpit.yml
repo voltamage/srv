@@ -8,12 +8,12 @@
       package:
         name:
           - cockpit
-          - cockpit-machines
           - cockpit-packagekit
           - cockpit-pcp
-          - cockpit-podman
           - cockpit-storaged
-          - virt-install
+    #          - cockpit-machines
+    #          - cockpit-podman
+    #          - virt-install
 
     - name: Enable and start cockpit.socket
       systemd:
@@ -26,15 +26,14 @@
         enabled: true
         state: started
         name: pmlogger.service
+#    - name: Enable and start libvirtd.service (for virtual machines)
+#      systemd:
+#        enabled: true
+#        state: started
+#        name: libvirtd.service
 
-    - name: Enable and start libvirtd.service (for virtual machines)
-      systemd:
-        enabled: true
-        state: started
-        name: libvirtd.service
-
-    - name: Enable and start podman.socket (for podman)
-      systemd:
-        enabled: true
-        state: started
-        name: podman.socket
+#    - name: Enable and start podman.socket (for podman)
+#      systemd:
+#        enabled: true
+#        state: started
+#        name: podman.socket
