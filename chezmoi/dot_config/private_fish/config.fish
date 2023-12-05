@@ -11,5 +11,8 @@ end
 
 alias cd='z'
 alias cdi='zi'
+alias dd='cd ~/srv && sudo docker-compose down'
+alias du='cd ~/srv && sudo docker-compose up -d'
+alias mt='sh ~/srv/maintain.sh'
 
 bind \e\[B 'complete'

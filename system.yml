@@ -24,7 +24,7 @@
 
     - name: Allow the main user to run passworded sudo
       blockinfile:
-        path: /etc/sudoers.d/u_main
+        path: /etc/sudoers.d/00_main
         create: true
         mode: 0644
         validate: "visudo -cf %s"
