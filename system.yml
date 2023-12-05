@@ -9,7 +9,9 @@
         name:
           - atuin
           - chezmoi
+          - fd
           - fish
+          - fzf
           - git
           - lazygit
           - neovim
