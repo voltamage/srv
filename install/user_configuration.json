@@ -19,11 +19,7 @@
     "no_pkg_lookups": false,
     "ntp": true,
     "offline": false,
-    "packages": [
-        "ansible",
-        "git",
-	"openssh"
-    ],
+    "packages": [],
     "parallel downloads": 0,
     "script": "guided",
     "silent": false,
