@@ -21,10 +21,8 @@
     "offline": false,
     "packages": [
         "ansible",
-        "neovim",
-	"openssh",
-        "tmux",
-        "ranger"
+        "git",
+	"openssh"
     ],
     "parallel downloads": 0,
     "script": "guided",

@@ -4,6 +4,12 @@
   become: true
 
   tasks:
+    - name: Ensure packages required for playbook exist
+      package:
+        name:
+          - chezmoi
+          - git
+
     - name: Ensure the main user exists # how to set accompanying gid
       user:
         uid: 1000
@@ -33,6 +39,23 @@
       shell:
         chdir: ~/srv
         cmd: git remote remove origin && git remote add origin git@github.com:voltamage/srv.git
+    
+    - name: Ensure git directory exists
+      become: true
+      become_user: main
+      file:
+        path: ~/.config/git
+        state: directory
+        mode: 0755
+    
+    - name: Copy git config
+      copy:
+        owner: main
+        group: main
+        force: false
+        mode: 0644
+        src: /home/main/srv/install/config
+        dest: /home/main/.config/git/config
 
     - name: Ensure .ssh directory exists
       become: true
@@ -44,6 +67,8 @@
 
     - name: Copy server public key
       copy:
+        owner: main
+        group: main
         force: false
         decrypt: true
         mode: 0644
@@ -52,6 +77,8 @@
 
     - name: Copy server private key
       copy:
+        owner: main
+        group: main
         force: false
         decrypt: true
         mode: 0600
