@@ -8,7 +8,12 @@
       package:
         name:
           - chezmoi
+          - fish
           - git
+          - lazygit
+          - neovim
+          - ranger
+          - tmux
 
     - name: Ensure the main user exists # how to set accompanying gid
       user:
