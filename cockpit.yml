@@ -11,6 +11,7 @@
           - cockpit-machines
           - cockpit-packagekit
           - cockpit-pcp
+          - cockpit-podman
           - cockpit-storaged
           - virt-install
 
@@ -31,3 +32,9 @@
         enabled: true
         state: started
         name: libvirtd.service
+
+    - name: Enable and start podman.socket (for podman)
+      systemd:
+        enabled: true
+        state: started
+        name: podman.socket
