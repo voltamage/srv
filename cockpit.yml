@@ -1,39 +1,26 @@
 ---
-- hosts: localhost
+- name: Cockpit setup
+  hosts: localhost
   connection: local
   become: true
 
   tasks:
     - name: Ensure packages required for playbook exist
-      package:
+      ansible.builtin.package:
         name:
           - cockpit
           - cockpit-packagekit
           - cockpit-pcp
           - cockpit-storaged
-    #          - cockpit-machines
-    #          - cockpit-podman
-    #          - virt-install
 
     - name: Enable and start cockpit.socket
-      systemd:
+      ansible.builtin.systemd_service:
         enabled: true
         state: started
         name: cockpit.socket
 
     - name: Enable and start pmlogger.service (for metrics)
-      systemd:
+      ansible.builtin.systemd_service:
         enabled: true
         state: started
         name: pmlogger.service
-#    - name: Enable and start libvirtd.service (for virtual machines)
-#      systemd:
-#        enabled: true
-#        state: started
-#        name: libvirtd.service
-
-#    - name: Enable and start podman.socket (for podman)
-#      systemd:
-#        enabled: true
-#        state: started
-#        name: podman.socket
