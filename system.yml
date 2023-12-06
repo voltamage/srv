@@ -19,6 +19,7 @@
           - neovim
           - openssh
           - ranger
+          - ripgrep
           - starship
           - tmux
           - zoxide
