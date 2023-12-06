@@ -10,6 +10,7 @@
           - atuin
           - chezmoi
           - eza
+          - fastfetch
           - fd
           - fish
           - fzf
