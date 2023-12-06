@@ -72,6 +72,12 @@
         block: |
           sourceDir: ~/srv/chezmoi
     
+    - name: Enable and start sshd.service
+      systemd:
+        enabled: true
+        state: started
+        name: sshd.service
+    
     - name: Allow the main user to run interactive fish
       become: true
       become_user: main
