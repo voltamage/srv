@@ -15,6 +15,7 @@
           - fzf
           - git
           - lazygit
+          - less
           - neovim
           - openssh
           - ranger
