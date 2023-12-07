@@ -6,8 +6,6 @@ services:
       - 9443:9443
       - 8000:8000
     volumes:
-      - portainer_data:/data
+      - /data/portainer-data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
-volumes:
-  portainer_data:
