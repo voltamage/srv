@@ -7,7 +7,7 @@ return {
   -- End of init.vim if you use neovim
   lazy = false,
   init = function()
-    vim.g['chezmoi#source_dir_path'] = '~/dotfiles/chezmoi'
+    vim.g['chezmoi#source_dir_path'] = '~/srv/chezmoi'
     vim.g['chezmoi#use_tmp_buffer'] = true -- experimental but required
   end,
 }

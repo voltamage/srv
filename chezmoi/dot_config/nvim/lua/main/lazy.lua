@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   { import = 'main.plugins' },
-  { import = 'main.plugins.lsp' },
+  -- { import = 'main.plugins.lsp' },
 }, {
   install = {
     colorscheme = { 'gruvbox-material' },
@@ -25,7 +25,7 @@ require('lazy').setup({
     -- * git: will run git diff and open a buffer with filetype git
     -- * terminal_git: will open a pseudo terminal with git diff
     -- * diffview.nvim: will open Diffview to show the diff
-    cmd = 'diffview.nvim', -- originally git
+    -- cmd = 'git', -- originally git
   },
   checker = {
     enabled = true,
