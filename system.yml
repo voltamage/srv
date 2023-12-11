@@ -17,12 +17,16 @@
           - git
           - lazygit
           - less
+          - man-db
           - neovim
+          - npm
           - openssh
           - ranger
           - ripgrep
           - starship
           - tmux
+          - unzip
+          - wget
           - zoxide
 
     - name: Ensure the main user exists # how to set accompanying gid
@@ -55,6 +59,22 @@
         chdir: ~/srv
         cmd: git remote remove origin && git remote add origin git@github.com:voltamage/srv.git
 
+    - name: Git clone nvim
+      become: true
+      become_user: main
+      git:
+        force: false # this one is default but i wanted it to be verbose
+        update: false
+        dest: ~/.config/nvim
+        repo: https://github.com/voltamage/nvim
+
+    - name: ALWAYS CHANGED Fix nvim origin
+      become: true
+      become_user: main
+      shell:
+        chdir: ~/.config/nvim
+        cmd: git remote remove origin && git remote add origin git@github.com:voltamage/nvim.git
+
     - name: Ensure chezmoi directory exists
       become: true
       become_user: main
@@ -72,13 +92,13 @@
         mode: 0644
         block: |
           sourceDir: ~/srv/chezmoi
-    
+
     - name: Enable and start sshd.service
       systemd:
         enabled: true
         state: started
         name: sshd.service
-    
+
     - name: Allow the main user to run interactive fish
       become: true
       become_user: main
