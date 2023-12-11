@@ -16,3 +16,11 @@
         enabled: true
         state: started
         name: docker.service
+    
+    - name: Ensure /opt/factorio directory exists
+      file:
+        owner: '845'
+        group: '845'
+        path: /opt/factorio
+        state: directory
+        mode: 0755
