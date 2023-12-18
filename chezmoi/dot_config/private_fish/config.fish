@@ -13,6 +13,7 @@ alias fetch='fastfetch -l small'
 alias ff='fd --color=always -H | fzf --ansi'
 alias ls='eza -ao'
 alias mt='sh ~/srv/maintain.sh'
+alias ngit='lazygit -p ~/.config/nvim'
 alias q='exit'
 alias sf='source ~/.config/fish/config.fish'
 
