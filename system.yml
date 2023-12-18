@@ -15,8 +15,10 @@
           - fish
           - fzf
           - git
+          - htop
           - lazygit
           - less
+          - lm_sensors
           - man-db
           - neovim
           - npm
